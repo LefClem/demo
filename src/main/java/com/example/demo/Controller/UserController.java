@@ -1,6 +1,6 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Entity.USERS;
+import com.example.demo.Entity.User;
 import com.example.demo.Repository.UserRepository;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,12 @@ public class UserController {
     }
 
     @GetMapping(path = "/user/{id}")
-    public @ResponseBody Optional<USERS> getUserName (@PathVariable Integer id){
+    public @ResponseBody Optional<User> getUserName (@PathVariable Integer id){
         return userRepository.findById(id);
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<USERS> getAllUsers() {
+    public @ResponseBody Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }

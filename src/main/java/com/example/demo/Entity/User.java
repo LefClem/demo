@@ -1,14 +1,14 @@
 package com.example.demo.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class USERS {
+@Table(name="USERS")
+public class User {
     @Id
     // I set the strategy to GenerationType.IDENTITY to use auto-increment in MySql
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,6 +23,10 @@ public class USERS {
     private Date created_at;
 
     private Date updated_at;
+
+    @OneToMany
+    private List<RENTALS> rentals;
+
 
     public Integer getId() {
         return id;

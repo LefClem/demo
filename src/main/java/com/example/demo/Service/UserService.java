@@ -1,6 +1,6 @@
 package com.example.demo.Service;
 
-import com.example.demo.Entity.USERS;
+import com.example.demo.Entity.User;
 import com.example.demo.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public String createUser (String name, String email, String password){
-        USERS n = new USERS();
+        User n = new User();
         n.setName(name);
         n.setEmail(email);
         n.setPassword(password);
